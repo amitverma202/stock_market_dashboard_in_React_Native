@@ -40,7 +40,7 @@ Before running the application, ensure you have the following:
 GETTING STARTED
 
 1. Clone the repository:
-    git clone ""
+    git clone "https://github.com/amitverma202/stock_market_dashboard_in_React_Native.git"
 
 2. Install dependencies:
 
