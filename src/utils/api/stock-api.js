@@ -1,6 +1,5 @@
 const basePath = "https://cloud.iexapis.com/stable";
-const apiKey = "pk_ae81ce6b66064d9d90a964d771dcb026";
-// const apiKey = process.env.REACT_APP_API_KEY;
+const apiKey = "";
 
 /**
  * Searches best stock matches based on a user's query
