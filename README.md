@@ -28,6 +28,12 @@ TECHNOLOGIES USED
 
 4. Theming: 
     Implementation of dark mode for a personalized user experience.
+
+LOGIN FEATURE 
+
+I used dummy username and password:
+Username is "user"
+Password is "password"
     
 PREREQUISTES
 
