@@ -31,12 +31,8 @@ const Auth = ({ onLogin }) => {
   return (
     <View style={styles.container}>
       <View style={styles.authContainer}>
-        <Text style={styles.title}>
-          STOCK MARKET DASHBOARD
-        </Text>
-        <Text style={styles.subtitle}>
-          {isLogin ? 'Login' : 'Sign Up'}
-        </Text>
+        <Text style={styles.title}>STOCK MARKET DASHBOARD</Text>
+        <Text style={styles.subtitle}>{isLogin ? 'Login' : 'Sign Up'}</Text>
         <TextInput
           placeholder="Username"
           value={username}
@@ -50,13 +46,8 @@ const Auth = ({ onLogin }) => {
           onChangeText={(text) => setPassword(text)}
           style={styles.input}
         />
-        <TouchableOpacity
-          onPress={handleAuthenticate}
-          style={styles.button}
-        >
-          <Text style={styles.buttonText}>
-            {isLogin ? 'Login' : 'Sign Up'}
-          </Text>
+        <TouchableOpacity onPress={handleAuthenticate} style={styles.button}>
+          <Text style={styles.buttonText}>{isLogin ? 'Login' : 'Sign Up'}</Text>
         </TouchableOpacity>
         <Text style={styles.toggleText}>
           {isLogin ? "Don't have an account?" : "Already have an account?"}{' '}

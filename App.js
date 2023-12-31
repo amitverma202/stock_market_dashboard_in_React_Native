@@ -1,16 +1,13 @@
+// App.js
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Dashboard from './src/components/Dashboard';
 import Auth from './src/components/Auth';
-import StockContext from './src/context/StockContext';
-import ThemeContext from './src/context/ThemeContext';
+import Dashboard from './src/components//Dashboard';
 
 const Stack = createStackNavigator();
 
-function App() {
-  const [darkMode, setDarkMode] = useState(false);
-  const [stockSymbol, setStockSymbol] = useState('MSFT');
+const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = () => {
@@ -22,25 +19,27 @@ function App() {
   };
 
   return (
-    <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
-      <StockContext.Provider value={{ stockSymbol, setStockSymbol }}>
-        <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen
-              name="Auth"
-              component={() => <Auth onLogin={handleLogin} />}
-            />
-            {isLoggedIn && (
-              <Stack.Screen
-                name="Dashboard"
-                component={() => <Dashboard onLogout={handleLogout} />}
-              />
-            )}
-          </Stack.Navigator>
-        </NavigationContainer>
-      </StockContext.Provider>
-    </ThemeContext.Provider>
+    <NavigationContainer>
+      {isLoggedIn ? (
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Dashboard"
+            component={Dashboard}
+            options={{ title: 'Dashboard' }}
+          />
+        </Stack.Navigator>
+      ) : (
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Auth"
+            options={{ headerShown: false }}
+          >
+            {(props) => <Auth {...props} onLogin={handleLogin} />}
+          </Stack.Screen>
+        </Stack.Navigator>
+      )}
+    </NavigationContainer>
   );
-}
+};
 
 export default App;

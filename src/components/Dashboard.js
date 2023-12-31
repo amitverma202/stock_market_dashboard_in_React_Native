@@ -11,11 +11,17 @@ import { fetchStockDetails, fetchQuote } from '../utils/api/stock-api';
 import { FontAwesome } from '@expo/vector-icons';
 
 const Dashboard = ({ onLogout }) => {
-  const { darkMode, setDarkMode } = useContext(ThemeContext);
-  const { stockSymbol } = useContext(StockContext);
+  const { darkMode, setDarkMode } = useContext(ThemeContext) || {};
+  const { stockSymbol } = useContext(StockContext) || {};
   const [stockDetails, setStockDetails] = useState({});
   const [quote, setQuote] = useState({});
   const navigation = useNavigation();
+
+  // Ensure that `darkMode`, `setDarkMode`, and `stockSymbol` are defined
+  if (darkMode === undefined || setDarkMode === undefined || stockSymbol === undefined) {
+    console.error('ThemeContext or StockContext values are undefined.');
+    // Handle the error or set default values if necessary
+  }
 
   useEffect(() => {
     const updateStockDetails = async () => {
@@ -49,13 +55,13 @@ const Dashboard = ({ onLogout }) => {
 
   return (
     <View
-      style={[
-        styles.container,
-        {
-          backgroundColor: darkMode ? '#282c34' : '#f8f9fa',
-          color: darkMode ? '#ffffff' : '#000000',
-        },
-      ]}
+      // style={[
+      //   styles.container,
+      //   {
+      //     backgroundColor: darkMode ? '#282c34' : '#f8f9fa',
+      //     color: darkMode ? '#ffffff' : '#000000',
+      //   },
+      // ]}
     >
       <View style={styles.headerContainer}>
         <Header name={stockDetails.companyName} />
@@ -98,6 +104,7 @@ const Dashboard = ({ onLogout }) => {
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {

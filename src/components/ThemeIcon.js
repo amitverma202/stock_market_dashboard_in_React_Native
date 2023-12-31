@@ -1,35 +1,35 @@
 import React, { useContext } from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import ThemeContext from '../context/ThemeContext';
-import { MoonIcon } from '@heroicons/react/solid';
+// import { MoonIcon } from '@heroicons/react/solid';
 
 const ThemeIcon = () => {
   const { darkMode, setDarkMode } = useContext(ThemeContext);
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+  // const toggleDarkMode = () => {
+  //   setDarkMode(!darkMode);
+  // };
 
   return (
     <TouchableOpacity
-      onPress={toggleDarkMode}
-      style={[
-        styles.themeIcon,
-        {
-          borderColor: darkMode ? '#495057' : '#d1d1d1',
-          backgroundColor: darkMode ? '#1e2128' : '#ffffff',
-        },
-      ]}
+      // onPress={toggleDarkMode}
+      // style={[
+      //   styles.themeIcon,
+      //   {
+      //     borderColor: darkMode ? '#495057' : '#d1d1d1',
+      //     backgroundColor: darkMode ? '#1e2128' : '#ffffff',
+      //   },
+      // ]}
     >
-      <MoonIcon
-        style={[
+      
+        {/* style={[
           styles.moonIcon,
           {
             color: darkMode ? '#FFD700' : 'transparent',
             borderColor: darkMode ? '#FFD700' : '#495057',
           },
-        ]}
-      />
+        ]} */}
+      
     </TouchableOpacity>
   );
 };

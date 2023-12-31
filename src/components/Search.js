@@ -3,7 +3,7 @@ import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-nativ
 import ThemeContext from '../context/ThemeContext';
 import { searchSymbol } from '../utils/api/stock-api';
 import SearchResults from './SearchResults';
-import { SearchIcon, XIcon } from '@heroicons/react/solid';
+// import { SearchIcon, XIcon } from '@heroicons/react/solid';
 
 const Search = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -30,13 +30,13 @@ const Search = () => {
   return (
     <View style={styles.searchContainer}>
       <TextInput
-        style={[
-          styles.input,
-          { backgroundColor: darkMode ? '#282c34' : '#ffffff' },
-        ]}
+        // style={[
+        //   styles.input,
+        //   { backgroundColor: darkMode ? '#282c34' : '#ffffff' },
+        // ]}
         value={input}
         placeholder="Search stock..."
-        placeholderTextColor={darkMode ? '#A9A9A9' : '#666666'}
+        // placeholderTextColor={darkMode ? '#A9A9A9' : '#666666'}
         onChangeText={(text) => setInput(text)}
         onKeyPress={({ nativeEvent }) => {
           if (nativeEvent.key === 'Enter') {
@@ -46,11 +46,11 @@ const Search = () => {
       />
       {input ? (
         <TouchableOpacity onPress={clear} style={styles.clearButton}>
-          <XIcon style={styles.clearIcon} />
+          style={styles.clearIcon} 
         </TouchableOpacity>
       ) : null}
       <TouchableOpacity onPress={updateBestMatches} style={styles.searchButton}>
-        <SearchIcon style={styles.searchIcon} />
+         style={styles.searchIcon} 
       </TouchableOpacity>
       {input && bestMatches.length > 0 ? (
         <SearchResults results={bestMatches} />
